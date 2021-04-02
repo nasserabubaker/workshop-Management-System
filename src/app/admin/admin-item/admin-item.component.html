@@ -1,0 +1,167 @@
+<div *ngIf = "!edit" class=" d-flex justify-content-center">
+    <figure class="card card-product-grid card-lg"> <a class="img-wrap" data-abc="true"> <img src="/assets/{{itemInfo.Pic}}"> </a>
+        <figcaption class="info-wrap">
+            <div class="row">
+                <div class="col-md-12 col-xs-12"> <a class="title" data-abc="true">اسم البضاعة : {{itemInfo.Name}}</a>  </div>
+
+            </div>
+        </figcaption>
+        <div class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12"> <a class="title" data-abc="true">₪ السعر : {{itemInfo.Price}}</a></div>
+                </div>
+            </figcaption>
+        </div>
+        <div class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div *ngIf="itemInfo.State" class="col-md-12 col-xs-12"> <a class="title" data-abc="true">الكمية : دزينة</a></div>
+                    <div *ngIf="!itemInfo.State" class="col-md-12 col-xs-12"> <a class="title" data-abc="true"> الكمية : قطعة واحدة</a></div>
+                </div>
+            </figcaption>
+        </div>
+        <div   class="bottom-wrap-payment">
+            <figcaption class="info-wrap ">
+                <div class="row">
+                    <div  class="col-md-12 col-xs-12"> عدد القطع في الدزينة :  {{itemInfo.NumberOfItems}}</div>
+                </div>
+            </figcaption>
+        </div>
+        <div   class="bottom-wrap-payment">
+            <figcaption class="info-wrap decr">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12"> <a  class="title" data-abc="true"> التفاصيل : {{itemInfo.descr}}</a></div>
+                </div>
+            </figcaption>
+        </div>
+        <div class="bottom-wrap-payment">
+            <figcaption *ngIf="itemInfo.color_count" class="info-wrap">
+                <div class="row">
+                    <div  class="colors row">
+                            <div *ngFor="let color of itemInfo.colors.split(' ')" class="colorcircle shadow col-md-1" style="background-color: {{color}}" ></div>
+                    </div>
+                    <div class="col-md-12 col-xs-12"> <a class="title" data-abc="true">الالوان</a></div>
+
+                </div>
+            </figcaption>
+        </div>
+        
+        <div class="bottom-wrap"> 
+            <button *ngIf="itemInfo.visible" (click)=" edit_visible()" type="button" class="btn btn-light">اخفاء</button>
+            <button *ngIf="!itemInfo.visible" (click)=" edit_visible()" type="button" class="btn btn-info">اظهار</button>
+            <button type="button" (click) ="showEdit()" class="btn btn-warning">تعديل</button>
+            <button type="button" (click)="delete_Item()" class="btn btn-danger">حذف</button>
+        </div>
+    </figure>
+</div>
+
+
+<div *ngIf = "edit" class=" d-flex justify-content-center">
+    <figure class="card card-product-grid card-lg"> <a class="img-wrap" data-abc="true"> <img src="/assets/{{itemInfo.Pic}}"> </a>
+        <figcaption class="info-wrap">
+            <div class="row">
+                <div class="father col-md-12 col-xs-12"> 
+                    <div class="form-row">
+                        <label  for="cat_name">اسم القطعة</label>
+                        <input  name="itemname" value="{{this.itemInfo.Name}}" type="text" [formControl] = "Itemname"  >
+                    </div>
+                </div>
+            </div>
+        </figcaption>
+        <figcaption class="info-wrap">
+            <div class="row">
+                <div class="father col-md-12 col-xs-12"> 
+                    <div class="form-row">
+                        <label for="cat_name">التصنيف</label>
+                        <select [formControl] = "categore">
+                            <option value="{{itemInfo.categorie_id}}">{{findCatName(itemInfo.categorie_id)}}{{ this.catname}}</option>
+                            <option *ngFor="let cat of categoresInfo" value="{{cat.ID}}">{{cat.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </figcaption>
+        <div class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="form-row">
+                        <label for="cat_name">السعر</label>
+                        <input  [formControl] = "price" value="{{this.itemInfo.Price}}" min = "1" value = "1"   name="itemname" type="number"  >
+                    </div>           
+                    </div>
+            </figcaption>
+        </div>
+        <div class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="form-row">
+                        <label for="cat_name">الكمية</label>
+                        <select  [formControl] = "type" *ngIf="!this.itemInfo.State">
+                            <option value="0">قطعة</option>
+                            <option value="1">دزينة</option>
+                        </select>
+                        <select  [formControl] = "type" *ngIf="this.itemInfo.State">
+                            <option value="1">دزينة</option>
+                            <option value="0">قطعة</option>
+                        </select>
+
+                    </div> 
+                </div>
+            </figcaption>
+        </div>
+        <div   class="bottom-wrap-payment">
+            <figcaption class="info-wrap ">
+                <div class="row">
+                    <div class="form-row">
+                        <label   for="cat_name">عدد القطع في الدزينة</label>
+                        <input  [formControl] = "numberOfItems"  name="itemname" value="{{this.itemInfo.NumberOfItems}}" min="1"  type="number"  >
+                    </div>   
+                </div>
+            </figcaption>
+        </div>
+        <div   class="bottom-wrap-payment">
+            <figcaption class="info-wrap ">
+                <div class="row">
+                    <div class="form-row">
+                        <label for="cat_name">التفاصيل</label>
+                        <textarea  [formControl] = "descr" cols="50" rows="3">{{this.itemInfo.descr}}</textarea>
+                    </div>  
+                </div>
+            </figcaption>
+        </div>
+        <form  #f="ngForm" (ngSubmit)="doEdit(f)">
+        <div   class="bottom-wrap-payment">
+            <figcaption class="info-wrap ">
+                <div class="row">
+
+                    <div class="form-row">
+                        <label for="cat_name">الصورة</label>
+                        <input  [formControl] = "pic" style="max-width: 250px;" (change)="fileEvent($event)" type="file" >
+                    </div>  
+                </div>
+            </figcaption>
+        </div>
+        <div class="form-row">
+            <div class="colors-choose ">
+                <div class="row">
+                        <div  *ngFor="let color of selectColors" class="col-md-4">
+                            <label > {{color.name}}  </label>
+                            <input type="checkbox" [formControl]="color.controle" value="{{color.value}} ">
+                        </div>
+  
+                </div>  
+            </div>
+         
+             <label for="cat_name">الالوان</label>
+        </div>
+        
+        
+        <div class="bottom-wrap"> 
+            <button type="button" (click) ="showEdit()" class="btn btn">الغاء التعديل</button>
+            <button type="button" (click) ="doEdit()" class="btn btn-warning">حفظ التعديلات</button>
+        </div>
+    </form>
+
+    </figure>
+</div>

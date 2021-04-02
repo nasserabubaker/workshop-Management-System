@@ -1,0 +1,42 @@
+<div class="container">
+    <h1 class="main_text">الطلبات المعلقة</h1>
+
+    <div>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">الاعدادات</div>
+        <div class="col col-1">ملاحظات</div>
+        <div class="col col-1">التاريخ</div>
+        <div class="col col-1">المبلغ</div>
+        <div class="col col-1">الزبون</div>
+        <div class="col col-1">رقم الطلبية</div>
+      </li>
+      <li *ngFor="let order of orders" class="table-row">
+        <div class="col col-1" data-label="الاعدادات">
+            <div class="controls ">
+                <button (click)="changeState(order.OrderID)" type="button" class="btn btn-success  col-md-6">تجهيز</button>
+                <button (click)="delteOrder(order.OrderID)" type="button" class="btn btn-danger  col-md-6">حذف</button>
+
+
+            </div>
+        </div>
+        <div style=" width: fit-content !important" class="col col-1" data-label="ملاحظات">
+            {{order.Descr}} 
+        </div>
+        <div class="col col-1" data-label="التاريخ">
+            {{getdate(order.Date)}} 
+        </div>
+        <div class="col col-1" data-label="المبلغ">
+            {{order.Amount}} 
+        </div>
+        <div class="col col-1" data-label="الزبون">
+            {{get_member_name(order.UserID)}} 
+        </div>
+        <div class="col col-1" data-label="رقم الطلبية">
+            <span class="order-id" routerLink="/Pannedorders/{{order.OrderID}}" >{{order.OrderID}} </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,8 @@
+<h1 class="main_text">
+        {{CategorieName}}
+ </h1>
+ <div class="items-box container">
+     <div class="row" >
+         <app-item *ngFor="let item of Items" [s] ='item' class="col-lg-3 col-md-4 col-sm-12"></app-item>
+     </div>
+ </div>

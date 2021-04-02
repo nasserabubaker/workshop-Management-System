@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="container">
+      <div style="background-image: url(/assets/photos/signin.jpg);" class="top"></div>
+      <div class="bottom">
+        <div class="left">
+          <div class="details">
+            <h1  class="text-muted">{{ItemInfo.Name}}</h1>
+            <p>{{ItemInfo.Price}} ₪</p>
+
+          </div>
+          
+          <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="inside">
+      <div class="icon"><i class="material-icons">info_outline</i></div>
+      <div class="contents">
+        <table>
+          <tr>
+            <th>النوع</th>
+            <th>عدد القطع</th>
+          </tr>
+          <tr>
+            <td *ngIf="ItemInfo.State==0">دزينة</td>
+            <td *ngIf="ItemInfo.State==1">قطعة واحدة</td>
+            <td>{{ItemInfo.NumberOfItems}}</td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <div class="describtion">
+            <h1>:الوصف</h1>
+        <p>{{ItemInfo.descr}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

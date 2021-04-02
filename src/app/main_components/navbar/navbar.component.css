@@ -1,0 +1,22 @@
+#myNavbar > a{
+float: right;
+color: black;
+font-size: 20px;
+}
+#myNavbar{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+#navDemo > a{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+}
+.mini-nav{
+    float:left;
+}
+.w3-top{
+position: inherit;
+}

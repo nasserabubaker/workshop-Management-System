@@ -1,0 +1,10 @@
+<div *ngIf="categorieInfo['visible']==1" [routerLink]="['/items', categorieInfo.ID,categorieInfo.Name]" class="main_categorie_box">
+    <div class="up">
+        <img  src="/assets/{{categorieInfo['Pic']}}">
+    </div>
+    <div class="down">
+        <h1> {{categorieInfo['visible']}} </h1>
+
+        <h1> {{categorieInfo['Name']}} </h1>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+
+<!--- user navbar -->
+<div *ngIf="usertype=='user'" class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a  class="mini-nav w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" (click)="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="" routerLink="home" class="w3-bar-item w3-button">معرض لورنس</a>
+      <a href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> التصنيفات</a>
+      <a href="" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-shopping-cart"></i> سلتي</a>
+      <a href="" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i> طلباتي</a>
+      <a  href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> تواصل معنا</a>
+      <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
+      <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">التصنيفات</a>
+      <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
+      <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تسجيل الدخول</a>
+    </div>
+</div>
+
+
+<!--- admin navbar -->
+<div *ngIf="usertype=='admin'" class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a  class="mini-nav w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" (click)="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="" routerLink="home" class="w3-bar-item w3-button">معرض لورنس</a>
+    <a routerLink="adminCategories" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> التصنيفات</a>
+    <a routerLink="adminItems" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> البضاعة</a>
+    <a  href="" routerLink="members" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-user-friends"></i> الزبائن</a>
+    <a  routerLink="PannedOrders" href="" class="w3-bar-item w3-button w3-hide-small"><i class="far fa-sticky-note"></i> الطلبات المعلقة</a>
+    <a href=""  class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i>جميع الطلبات</a>
+    <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
+    <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
+    
+
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">التصنيفات</a>
+    <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
+    <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تسجيل الدخول</a>
+  </div>
+</div>
+
+
+
+<!--- none-user navbar -->
+<div *ngIf="usertype=='noneuser'" class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a  class="mini-nav w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" (click)="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="" routerLink="home" class="w3-bar-item w3-button">معرض لورنس</a>
+    <a href="" routerLink="categories"  class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> التصنيفات</a>
+    <a  href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> تواصل معنا</a>
+    <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
+    <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">التصنيفات</a>
+    <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
+    <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تسجيل الدخول</a>
+  </div>
+</div>

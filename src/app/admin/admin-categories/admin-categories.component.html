@@ -1,0 +1,29 @@
+<h1 class="main_text">
+    التصنيفات
+ </h1>
+ <div class="new-dev" >
+  <button type="button"  (click)="showNewCat()"  class="btn btn-warning">تصنيف جديد</button>
+  <div *ngIf="newcat" class="insert-dev shadow" >
+    <h1 class="edit_text">صنف جديد</h1>
+    <form #f="ngForm" (ngSubmit)="onSubmitform(f)">
+        <div class="form-row">
+            <input  [formControl]="Catname" name="catName" type="text"  >
+            <label for="cat_name">اسم التصنيف</label>
+        </div>
+        <div class="form-row">
+            <input  [formControl]="Pic" (change)="fileEvent($event)" name="myFile" type="file">
+
+            <label for="cat_name">الصورة</label>
+        </div>
+        <div class="form-button">
+            <button    class="btn btn-success"> اضافة التصنيف</button>
+        </div>
+    </form>
+  </div>
+ </div>
+ <div class="categories-box container">
+     <div class="row" >
+
+       <app-admin-categorie  *ngFor="let cat of categores" [s]="cat"   class="col-lg-3 col-md-4 col-sm-12"></app-admin-categorie>
+     </div>
+ </div>

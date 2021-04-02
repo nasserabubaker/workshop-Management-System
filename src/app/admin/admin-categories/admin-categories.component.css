@@ -1,0 +1,87 @@
+.new-dev{
+    display:flex;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    flex-direction: column;
+}
+.new-dev > *{
+    margin: auto;
+}
+.new-dev  > button{
+    width: 200px;
+    height: 50px;
+}
+.insert-dev{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px !important;
+    width: 50%;
+    display: flex;
+
+    flex-direction: column;
+}
+.insert-dev > *{
+    margin:auto;
+}
+
+.main_categorie_box{
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+    
+
+}
+.up{
+    height: 400px;
+}
+.up> img{
+    width: 100%;
+    height: 100%;
+
+}
+.down{
+    height: 20%;
+}
+.down > h1{
+    text-align: center;
+    padding: 20px;
+    font-family: inherit;
+}
+.controls{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+.edit_text{
+    text-align: center;
+    font-family: inherit;
+    font-size: 1.5rem;
+}
+.form-row{
+    display: flex;
+    justify-content: flex-end;
+    padding:10px;
+}
+
+.form-row > label{
+    font-family: inherit;
+    margin-left: 10px;
+    text-align: right;
+}
+.form-row > input[type =text]{
+    text-align: center;
+    padding: 5px;
+    border: none;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.form-row > input[type =text]:focus{
+
+    outline: none;
+}
+.form-button{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}

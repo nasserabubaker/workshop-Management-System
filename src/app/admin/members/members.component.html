@@ -1,0 +1,133 @@
+<div class="container">
+
+    <h1 class="main_text">الزبائن</h1>
+    <div class="form-button">
+        <button (click)="showNew()" class="btn btn-warning new_mem">زبون جديد</button>
+    </div>
+    <div *ngIf="update" class="edit_main_box shadow"> 
+        <h1 class="edit_text">تعديل الزبون : {{membertoEdit.FullName}}</h1>
+        <div class="form">
+            <div class="form-row">
+                <input name="Username" [formControl]="username" value="{{membertoEdit.Username}}" type="text"  >
+                <label for="cat_name">اسم المستخدم</label>
+            </div>
+
+            <div class="form-row">
+                <input name="Password"  autocomplete="off" [formControl]="password" placeholder="اتكرها فارغة اذا لا تريد تغييرها" type="password"  >
+                <label for="cat_name">كلمة المرور</label>
+            </div>
+            <div class="form-row">
+                <input name="FullName" [formControl]="fullname" value="{{membertoEdit.FullName}}" type="text"  >
+                <label for="cat_name">اسم الزبون</label>
+            </div>
+            <div class="form-row">
+                <input name="Phone" [formControl]="phone" value="{{membertoEdit.phone}}" type="text"  >
+                <label for="cat_name">الهاتف</label>
+            </div>
+            <div class="form-row">
+                <input name="Address" [formControl]="address" value="{{membertoEdit.Address}}" type="text"  >
+                <label for="cat_name">العنوان</label>
+            </div>
+            <div class="form-row">
+                <select [formControl]="state" *ngIf="membertoEdit.GroubID==0">
+                    <option [ngValue]= "0" value="0">زبون</option>
+                    <option [ngValue]= "1"value="1">مسؤول</option>
+                </select>
+                <select [formControl]="state" *ngIf="membertoEdit.GroubID">
+                    <option [ngValue]= "1" value="1">مسؤول</option>
+                    <option [ngValue]= "0" value="0">زبون</option>
+                </select>
+                <label for="cat_name">الحالة</label>
+            </div>
+            <div class="form-button">
+                <button (click)="doUpdate()"    class="btn btn-success">حفظ التعديلات</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div *ngIf="neMem" class="edit_main_box shadow"> 
+        <h1 class="edit_text"> زبون جديد</h1>
+        <div class="form">
+            <div class="form-row">
+                <input name="Username" [formControl]="username"  type="text"  >
+                <label for="cat_name">اسم المستخدم</label>
+            </div>
+
+            <div class="form-row">
+                <input name="Password"  autocomplete="off" [formControl]="password" placeholder="" type="password"  >
+                <label for="cat_name">كلمة المرور</label>
+            </div>
+            <div class="form-row">
+                <input name="FullName" [formControl]="fullname"  type="text"  >
+                <label for="cat_name">اسم الزبون</label>
+            </div>
+            <div class="form-row">
+                <input name="Phone" [formControl]="phone"  type="text"  >
+                <label for="cat_name">الهاتف</label>
+            </div>
+            <div class="form-row">
+                <input name="Address" [formControl]="address"  type="text"  >
+                <label for="cat_name">العنوان</label>
+            </div>
+            <div class="form-row">
+                <select [formControl]="state" >
+                    <option [ngValue]= "0" value="0">زبون</option>
+                    <option [ngValue]= "1"value="1">مسؤول</option>
+                </select>
+
+                <label for="cat_name">الحالة</label>
+            </div>
+            <div class="form-button">
+                <button (click)="doNew()"    class="btn btn-success">اضافة الزبون</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="table">
+        <div class="container">
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-1">الاعدادات</div>
+                <div class="col col-1">الحالة</div>
+                <div class="col col-1">العنوان</div>
+                <div class="col col-1">الهاتف</div>
+                <div class="col col-1">اسم الزبون</div>
+                <div class="col col-1">اسم المستخدم</div>
+              <li *ngFor="let member of members" class="table-row">
+                <div class="col col-1" data-label="الاعدادات">
+                    <div class="controls ">
+                        <button type="button" (click)="showUpdate(member.UserId)"   class="btn btn-warning ">تعديل</button>
+                        <button type="button" (click)="deleteMember(member.UserId)"  class="btn btn-danger ">حذف</button>
+                    </div>
+                </div>
+                <div class="col col-1" data-label="الحالة">
+                    <div *ngIf="member.GroubID">
+                        مسؤول
+                    </div>
+                    <div *ngIf="!member.GroubID">
+                        زبون
+                    </div>
+                </div>
+                <div class="col col-1" data-label="العنوان">
+                    {{  member.Address  }}
+                </div>
+                <div class="col col-1" data-label="الهاتف">
+                    {{  member.phone  }}
+                </div>
+                <div class="col col-1" data-label="اسم الزبون">
+                    {{  member.FullName  }}
+                </div>
+                <div class="col col-1" data-label="اسم المستخدم">
+                    {{  member.Username  }}
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        
+    </div>
+</div>

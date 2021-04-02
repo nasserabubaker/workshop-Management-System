@@ -1,0 +1,76 @@
+
+
+<div class="container">
+    <h1 class="main_text">البضاعة</h1>
+
+    <button (click) = "showNew()" type="button" class="btn btn-warning new_item_button">بضاعة جديدة</button>
+    <div *ngIf="newItem" class="new_item_div shadow">
+        <h1 class="edit_text">صنف جديد</h1>
+    <form  #f="ngForm" (ngSubmit)="doNew(f)">
+        <div class="form-row">
+            <input [formControl]="Itemname"  name="itemname" type="text"  >
+            <label for="cat_name">اسم البضاعة</label>
+        </div>
+        <div class="form-row">
+
+            <select [formControl]="categore">
+                <option disabled value="default">اختار تصنيف </option>
+                <option  *ngFor="let cat of selectCategories" value="{{cat.id}}">{{cat.name}}</option>
+            </select>
+            <label for="cat_name">التصنيف</label>
+        </div>
+        <div class="form-row">
+            <input [formControl]="price"   name="price" type="number" min="1" value="1"  >
+            <label for="cat_name">السعر</label>
+        </div>
+        <div class="form-row">
+            <select [formControl]="type" >
+                <option value="0" >
+                    قطعة واحدة
+                </option>
+                <option value="1" >
+                    دزينة
+                </option>
+            </select>
+            <label for="cat_name">دزينة او قطعة واحدة</label>
+        </div>
+        <div class="form-row">
+            <input  [formControl]="numberOfItems"  name="catName" type="number"  min = "1" value="1">
+            <label for="cat_name">عدد القطع في الدزينة</label>
+        </div>
+        <div class="form-row">
+            <div class="colors-choose ">
+                <div class="row">
+
+                <div *ngFor="let color of selectColors" class="col-md-4">
+                    <label > {{color.name}}  </label>
+                    <input type="checkbox" [formControl]="color.controle" value="{{color.value}} ">
+                </div>
+                </div>  
+            </div>
+         
+             <label for="cat_name">الالوان</label>
+        </div>
+        <div class="form-row">
+            <textarea [formControl]="descr" id="w3review" name="w3review" rows="4" cols="50"></textarea>
+
+            <label for="cat_name">الوصف</label>
+        </div>
+        <div class="form-row">
+            <input [formControl]="pic"   name="myFile" (change)="fileEvent($event)" type="file">
+
+            <label for="cat_name">الصورة</label>
+        </div>
+        <div class="form-button">
+            <button class="btn btn-success"> اضافة البضاعة</button>
+        </div>
+    </form>
+    </div>
+
+    <div class="items-box container shadow">
+        <div class="row">
+            <app-admin-item *ngFor="let item of items" [s]="item" class="col-md-4"></app-admin-item>
+
+        </div>
+    </div>
+</div>
