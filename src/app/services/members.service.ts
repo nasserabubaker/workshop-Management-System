@@ -31,14 +31,7 @@ export class MembersService {
 
   }
   addNewUser(obj):Observable<Member[]> {
-    /*
-    obj:{
-    UserName:username
-    }
-     */
-
     return this.http.post<Member[]>('http://localhost:3000/api/members/newuser',obj);
-
   }
   
 }

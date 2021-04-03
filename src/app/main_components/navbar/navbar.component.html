@@ -34,7 +34,7 @@
     <a routerLink="adminItems" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> البضاعة</a>
     <a  href="" routerLink="members" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-user-friends"></i> الزبائن</a>
     <a  routerLink="PannedOrders" href="" class="w3-bar-item w3-button w3-hide-small"><i class="far fa-sticky-note"></i> الطلبات المعلقة</a>
-    <a href=""  class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i>جميع الطلبات</a>
+    <a  routerLink="allorders"  class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i>جميع الطلبات</a>
     <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
     <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
     

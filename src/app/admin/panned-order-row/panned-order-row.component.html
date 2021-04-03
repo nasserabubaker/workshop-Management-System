@@ -1,0 +1,24 @@
+<li class="table-row">
+    <div class="col col-1" data-label="الوصف">
+        {{OrderData.Descr}}    
+    </div>
+    <div class="col col-1" data-label="المبلغ">
+        {{ getItemTotalPrice(OrderData.ItemID)  }}
+    </div>
+    <div class="col col-1" data-label="سعر الواحدة">
+        {{ getItemPrice(OrderData.ItemID)  }}
+    </div>
+    
+    <div class="col col-1" data-label="الكمية">
+        <div class="quantity-controls">
+             <div (click)="increment()" class="plus ">+</div>
+             <input [formControl]="quantityInput" class="quantity-input"  value="{{OrderData.Quantity}}">
+             <div (click)="decrement()" class="minus ">-</div>
+        </div>
+    </div>
+
+
+    <div class="col col-1" data-label="اسم القطعة">
+        {{getItemName(OrderData.ItemID)}}    
+    </div>
+  </li>

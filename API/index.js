@@ -191,8 +191,6 @@ app.route('/api/members/checkusername:username')
 
 app.route('/api/members/newuser')
     .post(function (req, res) {
-        console.log("hi");
-
         members.newuser(req, res);
     });
 
@@ -252,6 +250,13 @@ app.route('/api/members/newuser')
     app.post('/api/orders/changeState', function (req, res) {
         orders.changeState(req, res);
     });
+    app.get('/api/Orders/getPannedOrderData:OrderID', function (req, res){
+    orders.getPannedOrderDate(req, res);
+    })
+    app.put('/api/Orders/updateQuantity', function (req, res){
+        orders.updateQuantity(req, res);
+    })
+    
 
 //#endregion
 

@@ -57,8 +57,8 @@ const newuser = (req, res) => {
     let fullname = req.body['FullName'];
     let state = req.body['GroubID'];
     let address = req.body['Address'];
-     let phone = req.body['phone'];
-     pass = sha1(pass);
+    let phone = req.body['phone'];
+    pass = sha1(pass);
     let sql = "insert into users(Username,password,FullName,GroubID,Address,phone)values(?,?,?,?,?,?)";
     con.query(sql,[name,pass,fullname,state,address,phone], function (err, result, fields) {
         if (err) throw err;
@@ -80,5 +80,4 @@ module.exports = {
     update,
     checkusername,
     newuser
-
 }

@@ -9,16 +9,11 @@ const con = mysql.createConnection({
 });
 //#endregion
 const getitems = (req, res) => {
-    let sql = "select * from items";
-    con.query(sql, function (err, result, fields) {
-        if (err) throw err;
-        let sql = "select * from items";
-    
+    let sql = "select * from items";  
     con.query(sql, function (err, result, fields) {
         if (err) throw err;
         
         res.status(200).json(result);
-    });
     });
 }
 

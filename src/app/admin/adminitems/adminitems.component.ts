@@ -45,7 +45,7 @@ export class AdminitemsComponent implements OnInit {
   constructor(private itemserves:ItemsService,private categoriesserves:CategorieServesService,private http:HttpClient) { }
   items:Array<Item>
   ngOnInit(): void {
-    this.itemserves.getAllItems().subscribe(x => this.items = x);
+    this.itemserves.getAllItems().subscribe(x => { this.items = x; console.log(this.items)});
     this.categoriesserves.getCategories().subscribe(x => this.categories = x);
     this.colorControls = this.getcolors();
     this.selectColors = this.getSelectedColors();

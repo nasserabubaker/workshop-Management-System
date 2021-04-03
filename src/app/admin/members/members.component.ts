@@ -142,7 +142,7 @@ export class MembersComponent implements OnInit {
       return;
 
     }
-    else if (!State) {
+    else if (!State && State.length==0) {
 
       alert("الحالة فارغة");
       return;

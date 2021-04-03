@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminCategorieComponent } from './admin/admin-categorie/admin-categorie.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminitemsComponent } from './admin/adminitems/adminitems.component';
+import { AllOrdersComponent } from './admin/all-orders/all-orders.component';
 import { MembersComponent } from './admin/members/members.component';
 import { PannedOrderComponent } from './admin/panned-order/panned-order.component';
 import { PannedOrdersComponent } from './admin/panned-orders/panned-orders.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"adminItems",component:AdminitemsComponent },
   { path: "PannedOrders", component: PannedOrdersComponent },
   { path: "Pannedorders/:OrderId", component: PannedOrderComponent },
+  { path: "allorders", component: AllOrdersComponent },
 
 
 ];

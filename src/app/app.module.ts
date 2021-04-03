@@ -26,6 +26,8 @@ import { AdminitemsComponent } from './admin/adminitems/adminitems.component';
 import { AdminItemComponent } from './admin/admin-item/admin-item.component';
 import { PannedOrdersComponent } from './admin/panned-orders/panned-orders.component';
 import { PannedOrderComponent } from './admin/panned-order/panned-order.component';
+import { AllOrdersComponent } from './admin/all-orders/all-orders.component';
+import { PannedOrderRowComponent } from './admin/panned-order-row/panned-order-row.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { PannedOrderComponent } from './admin/panned-order/panned-order.componen
     AdminitemsComponent,
     AdminItemComponent,
     PannedOrdersComponent,
-    PannedOrderComponent
+    PannedOrderComponent,
+    AllOrdersComponent,
+    PannedOrderRowComponent
   ],
   imports: [
     BrowserModule,
