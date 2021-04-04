@@ -1,0 +1,37 @@
+<div class="contaienr">
+    <h1  class="main_text">جميع الطلبات</h1>
+    
+    <div class="container">
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1">الحالة</div>
+            <div class="col col-1">الوصف</div>
+            <div class="col col-1">التاريخ</div>
+            <div class="col col-1">المبلغ</div>
+            <div class="col col-1">رقم الطلبية</div>
+          </li>
+          <li *ngFor="let order of Orders" class="table-row">
+            <div class="col col-1" data-label="الحالة">
+                <span *ngIf="!order.state" style="color: red;">بانتظار التجهيز</span>
+                <span *ngIf="order.state" style="color: green;">تم التجهيز</span>
+            </div>
+            <div class="col col-1" data-label="الوصف">
+                {{order.Descr}}
+            </div>
+            <div class="col col-1" data-label="التاريخ">
+                {{getdate(order.Date) }}
+
+            </div>
+            <div class="col col-1" data-label="المبلغ">
+                {{order.Amount}}
+
+            </div>
+            <div routerLink="/adminOrder/{{order.OrderID}}"  class="col col-1 OrderID" data-label="رقم الطلبية">
+                {{order.OrderID}}
+            </div>
+          </li> 
+        </ul>
+      </div>
+
+
+</div>

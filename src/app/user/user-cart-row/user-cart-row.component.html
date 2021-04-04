@@ -1,0 +1,12 @@
+<div class="row border-top border-bottom">
+    <div class="row main align-items-center">
+        <div class="col"><i (click)="onDelete()" style="font-size: 20px; cursor: pointer;" class="fas fa-trash-alt"></i></div>
+        <div class="col">{{data.Descr}}</div>
+        <div class="col">{{getFullPrice()}}</div>
+        <div class="col">{{getPrice()}}</div>
+        <div class="col"> <div class="quan"><a (click) = "decrement()" >-</a><input   type="number" value="1" [formControl]="quantity"class="quantity-input" angular-mydatepicker readonly ><a  (click) = "increment()">+</a></div> </div>
+        <div class="col">
+            <div class="row text-muted">{{getName()}}</div>
+        </div>
+    </div>
+</div>

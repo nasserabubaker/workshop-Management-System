@@ -1,0 +1,84 @@
+<div  class=" d-flex justify-content-center">
+    <figure class="card card-product-grid card-lg"> <a class="img-wrap" data-abc="true"> <img src="assets/{{itemInfo.Pic}}"> </a>
+        <figcaption class="info-wrap">
+            <div class="row">
+                <div class="col-md-12 col-xs-12"> <a class="title" data-abc="true">{{itemInfo.Name}} </a>  </div>
+
+            </div>
+        </figcaption>
+        <div class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12"> <a class="title" data-abc="true">₪ {{itemInfo.Price}} </a></div>
+                </div>
+            </figcaption>
+        </div>
+        <div  class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div *ngIf="itemInfo.State" class="col-md-12 col-xs-12"> <a class="title" data-abc="true">الكمية : دزينة</a></div>
+                    <div *ngIf="!itemInfo.State"  class="col-md-12 col-xs-12"> <a class="title" data-abc="true">الكمية : قطعة واحدة</a></div>
+                </div>
+            </figcaption>
+        </div>
+        <div *ngIf="itemInfo.State"   class="bottom-wrap-payment">
+            <figcaption class="info-wrap ">
+                <div class="row">
+                    <div  class="col-md-12 col-xs-12"> عدد القطع في الدزينة : {{itemInfo.NumberOfItems}} </div>
+                </div>
+            </figcaption>
+        </div>
+        <div   class="bottom-wrap-payment">
+            <figcaption class="info-wrap decr">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12"> <a  class="title" data-abc="true"> التفاصيل : {{itemInfo.descr}} </a></div>
+                </div>
+            </figcaption>
+        </div>
+        
+        <div class="bottom-wrap-payment">
+            <figcaption *ngIf="itemInfo.color_count" class="info-wrap">
+                <div class="row">
+                    <div  class="colors row">
+                            <div *ngFor="let color of itemInfo.colors.split(' ')" class="colorcircle shadow col-md-1" style="background-color: {{color}}" ></div>
+                    </div>
+                    <div class="col-md-12 col-xs-12"> <a class="title" data-abc="true"></a></div>
+
+                </div>
+            </figcaption>
+        </div>
+        <div class="bottom-wrap-payment">
+            <figcaption *ngIf="itemInfo.color_count" class="info-wrap">
+                <div class="row">
+                    <div >
+                        <label>الكمية</label>
+                        <div class="quantity-controls">
+                            <div (click)="increment()" class="plus ">+</div>
+                            <input [formControl]="quantityInput" class="quantity-input"  value="">
+                            <div (click)="decrement()" class="minus ">-</div>
+                       </div>
+                    </div>
+
+                </div>
+            </figcaption>
+        </div>
+        <div class="bottom-wrap-payment">
+            <figcaption  class="info-wrap">
+                <div class="row">
+                    <div >
+                        <textarea (click)="textAreaClick()" cols="30" rows="5" [formControl]="descr" style="font-size:10px" ></textarea>
+  
+                    </div>
+
+                </div>
+            </figcaption>
+        </div>
+        
+        <div class="bottom-wrap"> 
+            <!-- <button *ngIf="itemInfo.visible" (click)=" edit_visible()" type="button" class="btn btn-light">اخفاء</button> -->
+            <button *ngIf = "!added" type="button" (click)="addToCart()" class="btn btn-warning" >اضافة الى السلة</button>
+            <button *ngIf = "added" type="button" (click)="addToCart()" class="btn btn-success" style="color: white;">مضاف الى السلة </button>
+        </div>
+    </figure>
+</div>
+

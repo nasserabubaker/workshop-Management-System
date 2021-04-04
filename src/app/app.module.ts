@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './main_components/navbar/navbar.component';
 import { LoginComponent } from './main_components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainpageComponent } from './main_components/mainpage/mainpage.component';
 import { FooterComponent } from './main_components/footer/footer.component';

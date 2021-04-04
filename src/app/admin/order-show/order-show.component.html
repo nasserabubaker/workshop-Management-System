@@ -1,0 +1,43 @@
+<div class="container">
+
+
+<div class="container">
+    <h2 > {{OrderID}}:رقم الطلبية </h2>
+      <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-1">الوصف</div>
+            <div class="col col-1">المبلغ</div>
+            <div class="col col-1">سعر الواحدة</div>
+            <div class="col col-1">الكمية</div>
+            <div class="col col-1">صورة</div>
+            <div class="col col-1">اسم القطعة</div>
+        </li>
+        <li *ngFor="let data of OrderData" class="table-row">  
+            <div class="col col-1 Descr" data-label="الوصف">
+                   {{data.Descr}}
+            </div>
+            <div class="col col-1" data-label="المبلغ">
+                {{getprice(data.ItemID,data.Quantity)}}
+            </div>
+            <div class="col col-1" data-label="سعر الواحدة">
+               {{getprice(data.ItemID)}}
+            </div>
+            
+            <div class="col col-1" data-label="الكمية">
+                    {{data.Quantity}}
+            </div>
+
+            <div class="col col-1 img-parent" style="background-image:url('/assets/{{getPic(data.ItemID)}}')" >
+            </div>
+        
+        
+            <div class="col col-1 " data-label="اسم القطعة">
+                {{getName(data.ItemID)}}
+            </div>
+          </li>
+
+
+
+  </ul>
+</div>
+</div>
