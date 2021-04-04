@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { Member } from 'src/app/models/member.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { MembersService } from 'src/app/services/members.service';
 @Component({
   selector: 'app-members',
@@ -11,7 +13,7 @@ import { MembersService } from 'src/app/services/members.service';
 })
 export class MembersComponent implements OnInit {
 
-  constructor(private memberserves: MembersService) { }
+  constructor(private authservice:AuthService ,   private route:Router,private memberserves: MembersService) { }
   members: Array<Member>;
   membertoEdit: Member;
   update: boolean = false;
@@ -23,6 +25,11 @@ export class MembersComponent implements OnInit {
   address = new FormControl();
   state = new FormControl();
   ngOnInit(): void {
+    this.authservice.userstate().subscribe(x => {
+      if (x != "admin") {
+        this.route.navigateByUrl('/home');
+      }
+    });
     this.memberserves.getAllMembers().subscribe(x => this.members = x);
   }
   deleteMember(memberid) {

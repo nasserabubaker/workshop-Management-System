@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Categorie } from 'src/app/models/categore.model';
 import { Item } from 'src/app/models/item.module';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategorieServesService } from 'src/app/services/categorie-serves.service';
 import { ItemsService } from 'src/app/services/items.service';
 
@@ -43,10 +45,15 @@ export class AdminItemComponent implements OnInit {
   colorControls: {controle:FormControl,color:string}[];
   @Input('s') itemInfo: Item
   edit: boolean = false;
-  constructor(private categoreserves:CategorieServesService,private itemserves:ItemsService,private http:HttpClient) { }
+  constructor(private authservice:AuthService ,private route:Router,private categoreserves:CategorieServesService,private itemserves:ItemsService,private http:HttpClient) { }
   categoresInfo: Array<Categorie>;
   //#endregion
   ngOnInit(): void {
+    this.authservice.userstate().subscribe(x => {
+      if (x != "admin") {
+        this.route.navigateByUrl('/home');
+      }
+    });
     this.categoreserves.getCategories().subscribe(x => this.categoresInfo = x);
     this.colorControls = [
       {

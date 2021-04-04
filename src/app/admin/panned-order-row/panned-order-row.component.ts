@@ -1,8 +1,10 @@
 import { unescapeIdentifier } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Item } from 'src/app/models/item.module';
 import { PannedOrder } from 'src/app/models/PannedOrder';
+import { AuthService } from 'src/app/services/auth.service';
 import { ItemsService } from 'src/app/services/items.service';
 import { OrdersService } from 'src/app/services/orders.service';
 
@@ -16,12 +18,17 @@ export class PannedOrderRowComponent implements OnInit {
   quantityInput =  new FormControl('');
 
   ItemsData: Array<Item>;
-  constructor(private itemserves:ItemsService,private orderserves:OrdersService) { }
+  constructor(private authservice:AuthService ,   private route:Router,private itemserves:ItemsService,private orderserves:OrdersService) { }
 
   ngOnInit(): void {
     this.itemserves.getAllItems().subscribe(x => this.ItemsData = x);
   }
   getItemName(ItemID) {
+    this.authservice.userstate().subscribe(x => {
+      if (x != "admin") {
+        this.route.navigateByUrl('/home');
+      }
+    });
     if (this.ItemsData == undefined) return;
     let name = "";
     this.ItemsData.forEach(item => {

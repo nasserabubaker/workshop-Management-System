@@ -16,12 +16,17 @@ export class AdminCategoriesComponent implements OnInit {
   fileEvent(e){
     this.filedata = e.target.files[0];
 }
-  constructor(private categorieserves: CategorieServesService, private route: Router,private http:HttpClient) { }
+  constructor(private authservice:AuthService , private categorieserves: CategorieServesService, private route: Router,private http:HttpClient) { }
   categores: Array<Categorie>;
   newcat: boolean = false;
   Catname = new FormControl();
   Pic = new FormControl();
   ngOnInit(): void {
+    this.authservice.userstate().subscribe(x => {
+      if (x != "admin") {
+        this.route.navigateByUrl('/home');
+      }
+    });
     this.categorieserves.getCategories().subscribe(x => this.categores = x);
 
   }

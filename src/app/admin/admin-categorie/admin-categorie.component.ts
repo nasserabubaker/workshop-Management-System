@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Categorie } from 'src/app/models/categore.model';
 import { CategorieServesService } from 'src/app/services/categorie-serves.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-categorie',
@@ -20,13 +21,19 @@ export class AdminCategorieComponent implements OnInit {
     
 }
   @Input('s') categorieInfo: Categorie;
-  constructor(private categorieserves: CategorieServesService, private route: Router,private http:HttpClient) { }
+  constructor(private authservice:AuthService ,   private routee:Router,private categorieserves: CategorieServesService, private route: Router,private http:HttpClient) { }
   edit: boolean = false;
   Catname = new FormControl();
   Pic = new FormControl();
 
   ngOnInit(): void {
+    this.authservice.userstate().subscribe(x => {
+      if (x != "admin") {
+        this.route.navigateByUrl('/home');
+      }
+    });
     this.Catname.setValue(this.categorieInfo.Name);
+
   }
   edit_visible() {
     let obj = {

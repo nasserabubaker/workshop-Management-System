@@ -19,7 +19,7 @@ export class OrderShowComponent implements OnInit {
   OrderData: Array<PannedOrder>;
   members: Array<Member>
   items:Array<Item>
-  constructor(private route: ActivatedRoute,private orderserves:OrdersService,private memberservice:MembersService,private itemserves:ItemsService,private routee: Router,private authservice:AuthService) { }
+  constructor( private route: ActivatedRoute,private orderserves:OrdersService,private memberservice:MembersService,private itemserves:ItemsService,private routee: Router,private authservice:AuthService) { }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
