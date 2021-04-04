@@ -36,6 +36,7 @@ export class UserCartComponent implements OnInit {
       this.UserID = x;
       if (x != undefined) {
         this.orderserves.getCartData(x).subscribe(x => {
+          console.log(x)
           this.cart = x;
           this.itemserves.getAllItems().subscribe(y => {
             this.items = y;

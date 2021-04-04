@@ -10,6 +10,10 @@ export class CategorieServesService {
   getCategories():Observable<Categorie[]> {
     return this.http.get<Categorie[]>('http://localhost:3000/api/categores');
   }
+  getAllCategoriesForShow():Observable<Categorie[]> {
+    return this.http.get<Categorie[]>('http://localhost:3000/api/categorie/getAllCategoriesForShow');
+  }
+  
   changevisible(id) : Observable<Categorie> {
 
     

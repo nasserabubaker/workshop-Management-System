@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './main_components/navbar/navbar.component';
 import { LoginComponent } from './main_components/login/login.component';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainpageComponent } from './main_components/mainpage/mainpage.component';
 import { FooterComponent } from './main_components/footer/footer.component';
@@ -26,8 +26,16 @@ import { AdminitemsComponent } from './admin/adminitems/adminitems.component';
 import { AdminItemComponent } from './admin/admin-item/admin-item.component';
 import { PannedOrdersComponent } from './admin/panned-orders/panned-orders.component';
 import { PannedOrderComponent } from './admin/panned-order/panned-order.component';
-import { AllOrdersComponent } from './admin/all-orders/all-orders.component';
 import { PannedOrderRowComponent } from './admin/panned-order-row/panned-order-row.component';
+import { AllOrdersComponent } from './admin/all-orders/all-orders.component';
+import { OrderShowComponent } from './admin/order-show/order-show.component';
+import { UserCategoriesComponent } from './user/user-categories/user-categories.component';
+import { UserShowItemsComponent } from './user/user-show-items/user-show-items.component';
+import { UserShowItemComponent } from './user/user-show-item/user-show-item.component';
+import { UserCartComponent } from './user/user-cart/user-cart.component';
+import { UserCartRowComponent } from './user/user-cart-row/user-cart-row.component';
+import { UserOrdersComponent } from './user/user-orders/user-orders.component';
+import { ContactUsComponent } from './user/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -48,15 +56,23 @@ import { PannedOrderRowComponent } from './admin/panned-order-row/panned-order-r
     AdminItemComponent,
     PannedOrdersComponent,
     PannedOrderComponent,
+    PannedOrderRowComponent,
     AllOrdersComponent,
-    PannedOrderRowComponent
+    OrderShowComponent,
+    UserCategoriesComponent,
+    UserShowItemsComponent,
+    UserShowItemComponent,
+    UserCartComponent,
+    UserCartRowComponent,
+    UserOrdersComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
     
     
 

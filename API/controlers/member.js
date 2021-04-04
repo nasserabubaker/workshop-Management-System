@@ -71,6 +71,14 @@ const newuser = (req, res) => {
         });
  });   
 }
+const getUserID = (req, res) => {
+    let username = req.params['username'];
+    let sql = "select UserId from users where Username = ?";
+    con.query(sql,[username], function (err, result, fields) {
+        if (err) throw err;
+        res.status(200).json(result[0]['UserId']);
+    });
+}
 
 
 
@@ -79,5 +87,6 @@ module.exports = {
     deleteMember,
     update,
     checkusername,
-    newuser
+    newuser,
+    getUserID
 }

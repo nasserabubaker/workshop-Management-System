@@ -13,6 +13,10 @@ export class ItemsService {
   getItems(CategoriesId) : Observable<Item[]> {
     return this.http.get<Item[]>('http://localhost:3000/api/items' + CategoriesId);
   }
+  getItemsForShow(CategoriesId) : Observable<Item[]> {
+    return this.http.get<Item[]>('http://localhost:3000/api/items/getItemsForShow' + CategoriesId);
+  }
+  
 
   getAllItems() : Observable<Item[]> {
     return this.http.get<Item[]>('http://localhost:3000/api/items/getitems' );

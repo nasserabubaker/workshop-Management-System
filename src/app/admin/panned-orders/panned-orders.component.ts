@@ -49,7 +49,8 @@ export class PannedOrdersComponent implements OnInit {
   }
   changeState(OrderID) {
     let obj = {
-      OrderID: OrderID
+      OrderID: OrderID,
+      type:0
     }
     this.orderservice.changeState(obj).subscribe(x => this.orders = x);
   }

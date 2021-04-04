@@ -17,6 +17,7 @@ export class AdminCategorieComponent implements OnInit {
   filedata: any;
   fileEvent(e){
     this.filedata = e.target.files[0];
+    
 }
   @Input('s') categorieInfo: Categorie;
   constructor(private categorieserves: CategorieServesService, private route: Router,private http:HttpClient) { }

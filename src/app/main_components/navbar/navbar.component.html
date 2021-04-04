@@ -6,10 +6,10 @@
         <i class="fa fa-bars"></i>
       </a>
       <a href="" routerLink="home" class="w3-bar-item w3-button">معرض لورنس</a>
-      <a href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> التصنيفات</a>
-      <a href="" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-shopping-cart"></i> سلتي</a>
-      <a href="" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i> طلباتي</a>
-      <a  href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> تواصل معنا</a>
+      <a routerLink="userCategories" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> التصنيفات</a>
+      <a routerLink="UserCart" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-shopping-cart"></i> سلتي</a>
+      <a routerLink="UserOrders" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i> طلباتي</a>
+      <a  reouterLine="ContactUS" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> تواصل معنا</a>
       <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
       <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
     </div>
@@ -17,7 +17,7 @@
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
       <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">التصنيفات</a>
-      <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
+      <a reouterLine="ContactUS"class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
       <a href="" class="w3-bar-item w3-button" (click) = "toggleFunction()">تسجيل الدخول</a>
     </div>
 </div>
@@ -34,7 +34,7 @@
     <a routerLink="adminItems" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> البضاعة</a>
     <a  href="" routerLink="members" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-user-friends"></i> الزبائن</a>
     <a  routerLink="PannedOrders" href="" class="w3-bar-item w3-button w3-hide-small"><i class="far fa-sticky-note"></i> الطلبات المعلقة</a>
-    <a  routerLink="allorders"  class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i>جميع الطلبات</a>
+    <a  routerLink="adminAllOrders"  class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-paste"></i>جميع الطلبات</a>
     <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
     <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
     
@@ -58,14 +58,14 @@
       <i class="fa fa-bars"></i>
     </a>
     <a   routerLink="home" class="w3-bar-item w3-button">معرض لورنس</a>
-    <a   class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> تواصل معنا</a>
+    <a routerLink="ContactUS"  class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> تواصل معنا</a>
     <a *ngIf="islogin==undefined&&islogin==null" routerLink="login" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الدخول</a>
     <a *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" routerLink="home" href="" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> تسجيل الخروج</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a routerLink = "ContactUs" class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
+    <a routerLink="ContactUS" class="w3-bar-item w3-button" (click) = "toggleFunction()">تواصل معنا</a>
     <a  *ngIf="islogin==undefined&&islogin==null" routerLink="login" class="w3-bar-item w3-button" (click) = "toggleFunction()">تسجيل الدخول</a>
     <a  *ngIf="islogin!=undefined&&islogin!=null" (click)="logout()" class="w3-bar-item w3-button" (click) = "toggleFunction()">تسجيل الخروج</a>
   </div>

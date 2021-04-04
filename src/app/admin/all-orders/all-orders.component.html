@@ -1,1 +1,32 @@
+<div class="container">
+    <div class="container">
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1">الاعدادات</div>
+            <div class="col col-1">الوصف</div>
+            <div class="col col-1">المبلغ</div>
+            <div class="col col-1">اسم الزبون</div>
+            <div class="col col-1">رقم الطلبية</div>
+          </li>
 
+
+          <li *ngFor="let order of orders" class="table-row">
+            <div class="col col-1" data-label="الاعدادات">
+                <button (click)="changeState(order.OrderID)" *ngIf="order.state" type="button" class="btn btn-info">الى الطلبات المعلقة</button>
+                <button (click)="changeState(order.OrderID)" *ngIf="!order.state"type="button" class="btn btn-success">تم التجهيز</button>
+            </div>
+            <div class="col col-1" data-label="الوصف">
+                {{order.Descr}}
+            </div>
+
+            <div class="col col-1" data-label="المبلغ">
+                {{order.Amount}}
+            </div>
+            <div class="col col-1" data-label="اسم الزبون">
+                {{getName(order.UserID)}}
+            </div>
+            <div class="col col-1 order-id" [routerLink]="['/OrderShow', order.OrderID]" data-label="رقم الطلبية">{{order.OrderID}}</div>
+          </li>
+        </ul>
+      </div>
+</div>

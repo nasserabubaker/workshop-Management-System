@@ -15,6 +15,13 @@ const getallCategories = (req, res) => {
         res.json(result);
    });
 }
+const getAllCategoriesForShow = (req, res) => {
+    let sql = "select * from categories where visible = 1";
+    con.query(sql, function (err, result, fields) {
+        res.json(result);
+   });
+}
+
 
 const editVisible = (req, res) => {
     let id = req.body['id'];
@@ -67,6 +74,7 @@ module.exports = {
     deleteCat,
     Update,
     add,
+    getAllCategoriesForShow
 
 
 

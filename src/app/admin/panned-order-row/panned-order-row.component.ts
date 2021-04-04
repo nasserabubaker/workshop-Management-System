@@ -70,7 +70,7 @@ export class PannedOrderRowComponent implements OnInit {
   decrement() {
     let x = this.quantityInput.value - 1;
     let flag = false;
-    if (x <= 0) { x = 1; flag = true;}
+    if (x < 0) { x = 0; flag = true;}
     this.quantityInput.setValue(x);
     this.OrderData.Quantity = x;
     let OrderID = this.OrderData.OrderID;

@@ -158,7 +158,12 @@ app.route('/api/categorie/Update')
 app.route('/api/categorie/add')
     .post(function (req, res) {
         categores.add(req, res);
-   });
+    });
+    app.route('/api/categorie/getAllCategoriesForShow')
+    .get(function (req, res) {
+        categores.getAllCategoriesForShow(req, res);
+    });
+    
 
 //#endregion
 
@@ -168,6 +173,11 @@ app.route('/api/categorie/add')
 app.route('/api/members/getmembers')
 .get(function (req, res) {
     members.getmembers(req, res);
+});
+
+app.route('/api/members/getUserID:username')
+.get(function (req, res) {
+    members.getUserID(req, res);
 });
 
 app.route('/api/members/deleteMember')
@@ -204,7 +214,11 @@ app.route('/api/members/newuser')
         .get(function (req, res) {
             items.getitems(req, res);
         });
-
+        app.route('/api/items/getItemsForShow:id')
+        .get(function (req, res) {
+            items.getItemsForShow(req, res);
+        });
+        
 
 
     app.route('/api/items/additem')
@@ -256,6 +270,43 @@ app.route('/api/members/newuser')
     app.put('/api/Orders/updateQuantity', function (req, res){
         orders.updateQuantity(req, res);
     })
+    app.get('/api/Orders/getAllOrders', function (req, res){
+        orders.getAllOrders(req, res);
+    })
+    app.post('/api/Orders/checkCart', function (req, res){
+        orders.checkCart(req, res);
+    })
+    app.post('/api/Orders/addToCart', function (req, res){
+        orders.addToCart(req, res);
+    })
+    app.get('/api/Orders/getCartData:UserID', function (req, res){
+        orders.getCartData(req, res);
+
+    })
+    app.post('/api/Orders/newOrder', function (req, res){
+        orders.newOrder(req, res);
+    })
+    app.post('/api/Orders/newOrderData', function (req, res){
+        orders.newOrderData(req, res);
+    })
+    app.put('/api/Orders/emptyCart', function (req, res){
+        orders.emptyCart(req, res);
+    })
+    app.put('/api/Orders/UpdateCart', function (req, res){
+        orders.UpdateCart(req, res);
+    })
+    app.put('/api/Orders/UpdateCartDelete', function (req, res){
+        orders.UpdateCartDelete(req, res);
+    })
+    
+app.get('/api/Orders/getUserOrders:UserID', function (req, res) {
+        orders.getUserOrders(req, res);
+    })
+    
+    
+    
+    
+    
     
 
 //#endregion

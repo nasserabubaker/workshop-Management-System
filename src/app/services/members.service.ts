@@ -13,6 +13,11 @@ export class MembersService {
     return this.http.get<Member[]>('http://localhost:3000/api/members/getmembers');
     
   }
+  getUserID(username):Observable <number>{
+    return this.http.get<number>('http://localhost:3000/api/members/getUserID'+username);
+    
+  }
+  
   deleteMember(obj) {
     return this.http.put('http://localhost:3000/api/members/deleteMember', obj);
   }

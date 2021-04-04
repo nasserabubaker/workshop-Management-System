@@ -16,6 +16,16 @@ const getitems = (req, res) => {
         res.status(200).json(result);
     });
 }
+const getItemsForShow = (req, res) => {
+    let id = req.params.id;
+
+    let sql = "select * from items where categorie_id = ? and visible = 1";  
+    con.query(sql,[id], function (err, result, fields) {
+        if (err) throw err;
+        res.status(200).json(result);
+    });
+}
+
 
 const additem = (req, res) => {
     let Name = req.body['Name'];
@@ -96,7 +106,8 @@ module.exports = {
     update,
     editvisible,
     deleteitem,
-    getitem
+    getitem,
+    getItemsForShow
 
 
 
